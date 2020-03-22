@@ -1,0 +1,68 @@
+<!DOCTYPE html><html><head><title>2</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h3 id="2">2</h3>
+
+<p>undefined <br>
+“language”</p>
+
+<h3 id="3">3</h3>
+
+<p>“window”</p>
+
+<h3 id="5">5</h3>
+
+<p>“12”</p>
+
+<h3 id="7">7</h3>
+
+<ul><li><p>不能实现</p></li>
+<li><p>直接弹出”5”</p></li>
+<li><p>在for循环里面的 inputs[i] 绑定点击事件之前，给每个元素 input 加上一个自定义属性 myIndex ，让当前循环i 的值存储到 myIndex 中，  代码如下:  <br>
+inputs[i].myIndex = i;</p></li>
+</ul>
+
+<h3 id="8">8</h3>
+
+<blockquote>
+  <p>函数执行会形成一个私有上下文的机制就被称为“闭包”，只不过市面上认为，一般的上下文执行完就出栈销毁了，只有那些没有被销毁的上下文才能被称为“闭包”</p>
+  
+  <ul><li><p>保护作用：在这个上下文中会有一个写私有的变量AO(XX)，这些私有的变量和外界的变量不会冲突（互不影响）</p></li>
+  <li><p>保存作用：某些情况下，上下文中的某些内容被外部占用后，当前上下文并不会出栈销毁，这样就会把上下文中的一些信息存储起来</p></li>
+  </ul>
+</blockquote>
+
+<h3 id="9">9</h3>
+
+<ul><li><p>1、let 没有变量提升（但是在词法解析阶段也得知某个变量是否是私有变量）</p></li>
+<li><p>2、let 不允许在相同的作用域下重复声明</p></li>
+<li><p>3、let 解决了JS 中的暂时性死区问题</p></li>
+<li><p>4、let 创建的全局变量没有给window 设置对应的属性</p></li>
+<li><p>5、let 会产生块级作用域</p></li>
+</ul>
+
+<h3 id="10">10</h3>
+
+<p>直接把里面的 var 改为 let</p>
+
+<h3 id="11">11</h3>
+
+<ul><li><p>返回结果： <br>
+function b(){ <br>
+b = 20; <br>
+console.log(b); <br>
+} <br>
+10</p></li>
+<li><p>代码改造输出20 10</p></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> b = <span class="hljs-number">10</span>;
+</div><div class="hljs-line">(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">b</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> b = <span class="hljs-number">20</span>;
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(b);
+</div><div class="hljs-line">})();
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(b);
+</div></code></pre></div></body></html>
