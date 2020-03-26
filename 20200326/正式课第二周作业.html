@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>1</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h3 id="1">1</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">   <span class="hljs-keyword">let</span> result = <span class="hljs-number">0</span>;
+</div><div class="hljs-line">   <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">arguments</span>.length; i++){
+</div><div class="hljs-line">       <span class="hljs-keyword">let</span> item = <span class="hljs-built_in">arguments</span>[i];
+</div><div class="hljs-line">       item = <span class="hljs-built_in">Number</span>(item);
+</div><div class="hljs-line">       <span class="hljs-keyword">if</span>(!<span class="hljs-built_in">isNaN</span>(item)){
+</div><div class="hljs-line">           result += item;
+</div><div class="hljs-line">       }
+</div><div class="hljs-line">   }
+</div><div class="hljs-line">   <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">num</span>)</span>{
+</div><div class="hljs-line">       num = <span class="hljs-built_in">Number</span>(num);
+</div><div class="hljs-line">       <span class="hljs-keyword">return</span> !<span class="hljs-built_in">isNaN</span>(num) ? result + num : <span class="hljs-literal">null</span>;
+</div><div class="hljs-line">   };
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> res = fn(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(res); <span class="hljs-comment">//=&gt;6  1+2+3</span>
+</div></code></pre>
+
+
+
+<h3 id="5">5</h3>
+
+<p>“Tomundefinedjoin”</p>
+
+<h2 id="8">8</h2>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-built_in">Number</span>.prototype.plus = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">plus</span>(<span class="hljs-params">num1</span>)</span>{
+</div><div class="hljs-line">   num1 = <span class="hljs-built_in">Number</span>(num1);
+</div><div class="hljs-line">   num1 = <span class="hljs-built_in">isNaN</span>(num1) ? <span class="hljs-number">0</span> : num1;
+</div><div class="hljs-line">   <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span> + num1;
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-built_in">Number</span>.prototype.minus = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">minus</span>(<span class="hljs-params">num2</span>)</span>{
+</div><div class="hljs-line">   num2 = <span class="hljs-built_in">Number</span>(num2);
+</div><div class="hljs-line">   num2 = <span class="hljs-built_in">isNaN</span>(num2) ? <span class="hljs-number">0</span> : num2;
+</div><div class="hljs-line">   <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span> - num2;
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> n = <span class="hljs-number">10</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> m = n.plus(<span class="hljs-number">10</span>).minus(<span class="hljs-number">5</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(m);<span class="hljs-comment">//=&gt;15（10+10-5）</span>
+</div></code></pre>
+
+<h3 id="9">9</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-built_in">Array</span>.prototype.unique = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unique</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">let</span> obj = {};
+</div><div class="hljs-line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>.length; i++){
+</div><div class="hljs-line">        <span class="hljs-keyword">let</span> item = <span class="hljs-keyword">this</span>[i];
+</div><div class="hljs-line">        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> obj[item] !== <span class="hljs-string">"undefined"</span>){
+</div><div class="hljs-line">            <span class="hljs-keyword">this</span>[i] = <span class="hljs-keyword">this</span>[<span class="hljs-keyword">this</span>.length - <span class="hljs-number">1</span>];
+</div><div class="hljs-line">            <span class="hljs-keyword">this</span>.length--;
+</div><div class="hljs-line">            i--;
+</div><div class="hljs-line">            <span class="hljs-keyword">continue</span>;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">        obj[item] = item;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    obj = <span class="hljs-literal">null</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> ary = [<span class="hljs-number">12</span>,<span class="hljs-number">23</span>,<span class="hljs-number">12</span>,<span class="hljs-number">13</span>,<span class="hljs-number">13</span>,<span class="hljs-number">12</span>,<span class="hljs-number">23</span>,<span class="hljs-number">14</span>,<span class="hljs-number">8</span>];
+</div><div class="hljs-line">ary.unique().sort(<span class="hljs-function">(<span class="hljs-params">a,b</span>)=&gt;</span>a-b);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(ary);
+</div></code></pre>
+
+<h3 id="10">10</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-built_in">String</span>.prototype.getParam = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getParam</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">let</span> askIndex = <span class="hljs-keyword">this</span>.indexOf(<span class="hljs-string">"?"</span>),
+</div><div class="hljs-line">    askText = <span class="hljs-keyword">this</span>.substring(askIndex + <span class="hljs-number">1</span>);
+</div><div class="hljs-line">    <span class="hljs-keyword">let</span> obj = {};
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span>(askText){
+</div><div class="hljs-line">    askText.split(<span class="hljs-string">"&amp;"</span>).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">let</span> arr = item.split(<span class="hljs-string">"="</span>),
+</div><div class="hljs-line">            key = arr[<span class="hljs-number">0</span>],
+</div><div class="hljs-line">            value = arr[<span class="hljs-number">1</span>];
+</div><div class="hljs-line">        obj[key] = value;
+</div><div class="hljs-line">    });
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> obj;
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> url=<span class="hljs-string">"locallhost?key1=val1&amp;key2=val2&amp;key3=val3"</span>;
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(url.getParam(<span class="hljs-string">"key3"</span>)); 
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;'val3'</span>
+</div></code></pre></div></body></html>
