@@ -1,0 +1,49 @@
+.container{
+    margin: 0 auto;
+    width: 960px;
+}
+.container .nav_box{
+    margin-bottom: 10px;
+    height: 56px;
+    background: #f8f9fa;
+    line-height: 56px;
+}
+.container .nav_box a{
+    float: left;
+    padding: 0px 15px;
+    color: #333;
+    font-size: 20px;
+}
+.container .nav_box li a{
+    font-size: 16px;
+}
+.product_box{
+    overflow: hidden;
+}
+.product_box .card{
+    margin-bottom: 10px;
+    margin-right: 1%;
+    float: left;
+    width: 18.9%;
+    border: 1px solid #ccc;
+}
+.product_box .card:nth-child(5n+5){
+    margin-right: 0;
+}
+.product_box .card img{
+    width: 100%;
+}
+.product_box .content{
+    padding: 20px;
+}
+.product_box h5{
+    overflow: hidden;
+    margin-bottom: 10px;
+    font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.product_box p{
+    margin-bottom: 10px;
+    font-size: 14px;
+}
