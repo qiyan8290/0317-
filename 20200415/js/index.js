@@ -107,7 +107,7 @@ let waterFlowModule = (function (){
             lazyFunc();
             window.onscroll = function (){
                 lazyFunc();
-                // loadMore();
+                loadMore();
             };
         }
     };
