@@ -1,0 +1,37 @@
+html,
+body{
+    background: #d6d7db;
+}
+.container{
+    box-sizing: border-box;
+    margin: 20px auto;
+    width: 760px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.column{
+    width: 240px;
+}
+.card{
+    margin-bottom: 10px;
+    padding: 5px;
+    background: #fff;
+    box-shadow: 3px 3px 10px 0 #222;
+}
+.card a{
+    display: block;
+}
+.card .lazy_img_box{
+    overflow: hidden;
+    background: url("../images/default.gif") no-repeat center center;
+}
+.card .lazy_img_box img{
+    width: 100%;
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+.card p{
+    color: #000;
+    line-height: 20px;
+}
