@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            background: red;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button>点我显示</button>
+    <script>
+        /*
+        * 在 1000ms 内完成盒子透明度从 0～1 的渐显 
+        * 每隔 2ms 渐显一次，一共要渐显的次数为 1000/2
+        * 每次渐显的透明度为 1/(1000/2),即所谓的 步长
+        */
+        let box = document.querySelector("#box"),
+            btn = document.querySelector("button"),
+            val = 0;
+
+        function fadeIn(ele){
+            let step = 1 / (1000 / 2);
+            let timer = setInterval(() => {
+                val += step;
+                if(val >= 1){
+                    clearInterval(timer);
+                }
+                ele.style.opacity = val;
+            }, 2);
+        }
+        btn.onclick = function (){
+            fadeIn(box);
+        };
+    </script>
+</body>
+</html>

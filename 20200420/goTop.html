@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>回到顶部</title>
+    <style>
+        html,body{
+            height: 10000px;
+        }
+        #box{
+            position: fixed;
+            right: 5px;
+            bottom: 5px;
+            width: 100px;
+            height: 50px;
+            background: red;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            line-height: 50px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    我在顶上
+    <div id="box">回到顶部</div>
+
+    <script>
+        window.onscroll = function (){
+            let box = document.querySelector("#box"),       
+                scrollT = document.documentElement.scrollTop,
+                clientH = document.documentElement.clientHeight;
+                console.log(scrollT);
+            let sTop = 0;
+            if(scrollT > clientH){
+                box.style.display = "block";
+
+                // 点击返回到顶部
+                /*
+                * scrollT 就是要返回到路程
+                * 1000ms 要返回的时间
+                * 每隔10ms 会返回一次，共需返回 1000/10 次才到顶部
+                * 每次返回的距离：即步长为 scrollT / (1000/10)
+                */
+                box.onclick = function (){
+                    let step = scrollT / (1000 / 10);
+                    let timer = setInterval(() => {
+                        scrollT -= step;
+                        if(scrollT <= 0){
+                            clearInterval(timer);
+                        }
+                        document.documentElement.scrollTop = scrollT;
+                    }, 10);
+                };
+            } else {
+                box.style.display = "none";
+            }
+            
+        };
+    </script>
+</body>
+</html>
