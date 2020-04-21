@@ -69,7 +69,7 @@
         move();
 
         leftBtn.onclick = function (){
-            clearInterval(timer);
+            // clearInterval(timer);
             start -= 600;
             if(start < -3000){
                 start = 0;
@@ -85,7 +85,7 @@
         };
         
         rightBtn.onclick = function (){
-            clearInterval(timer);
+            // clearInterval(timer);
             start += 600;
             if(start > 0){
                 start = -3000;
@@ -98,6 +98,12 @@
                 ul.style.transition = "all 0.3s";
             }
             ul.style.transform = `translateX(${start}px)`;
+        };
+        box.onmouseenter = function (){
+            clearInterval(timer);
+        };
+        box.onmouseleave = function (){
+            move();
         };
     </script>
 </body>
