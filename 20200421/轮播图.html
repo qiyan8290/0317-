@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="less/2.css">
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>
+                <img src="https://cms-bucket.ws.126.net/2020/0227/f8e3f9e3j00q6cu9c0062c000go006yc.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://cms-bucket.ws.126.net/2020/0306/9084f041j00q6rqcl00l2c000go006yc.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://cms-bucket.ws.126.net/2020/0227/e986cfd0j00q6cu4v001hc000go006yc.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://cms-bucket.ws.126.net/2020/0218/2f1f019fj00q5w7pw008sc000go006yc.jpg" alt="">
+            </li>
+            <li>
+                <img src="http://cms-bucket.ws.126.net/2020/0421/e93e2200p00q94okl00mpc000s600e3c.png" alt="">
+            </li>
+            <li>
+                <img src="https://cms-bucket.ws.126.net/2020/0227/f8e3f9e3j00q6cu9c0062c000go006yc.jpg" alt="">
+            </li>
+        </ul>
+        <div class="btn_box">
+            <div class="left_btn"> < </div>
+            <div class="right_btn"> > </div>
+        </div>
+        <ul class="circle_box">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        let box = document.querySelector("#box"),
+            ul = document.querySelector("ul"),
+            leftBtn = document.querySelector(".left_btn"),
+            rightBtn = document.querySelector(".right_btn"),
+            start = 0,
+            timer = null;
+        
+        function move(){
+            timer = setInterval(() => {
+                start -= 600;
+                if(start < -3000){
+                    start = 0;
+                    ul.style.transition = "none";
+                    ul.style.transform = `translateX(${start}px)`;
+                    let l = ul.offsetHeight;
+                    start = -600;
+                    ul.style.transition = "all 0.3s";
+                } else {
+                    ul.style.transition = "all 0.3s";
+                }
+
+                ul.style.transform = `translateX(${start}px)`;
+            }, 1500);
+        }
+        move();
+
+        leftBtn.onclick = function (){
+            clearInterval(timer);
+            start -= 600;
+            if(start < -3000){
+                start = 0;
+                ul.style.transition = "none";
+                ul.style.transform = `translateX(${start}px)`;
+                let l = ul.clientWidth;
+                start = -600;
+                ul.style.transition = "all 0.3s";
+            } else {
+                ul.style.transition = "all 0.3s";
+            }
+            ul.style.transform = `translateX(${start}px)`;
+        };
+        
+        rightBtn.onclick = function (){
+            clearInterval(timer);
+            start += 600;
+            if(start > 0){
+                start = -3000;
+                ul.style.transition = "none";
+                ul.style.transform = `translateX(${start}px)`;
+                let l = ul.clientWidth;
+                start = -2400;
+                ul.style.transition = "all 0.3s";
+            } else {
+                ul.style.transition = "all 0.3s";
+            }
+            ul.style.transform = `translateX(${start}px)`;
+        };
+    </script>
+</body>
+</html>
